@@ -1,0 +1,27 @@
+name: Foundational CI Automation Lab
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Step 1 - Check out the repository code
+      uses: actions/checkout@v4
+
+    - name: Step 2 - Run system diagnostic echo
+      run: |
+        echo "Successfully initialized DevOps automation pipeline."
+        echo "The current repository is: ${{ github.repository }}"
+        echo "Triggered by user: ${{ github.actor }}"
+
+    - name: Step 3 - Simulate environment build test
+      run: |
+        echo "Running automated syntax verification..."
+        echo "Workflow ID: ${{ github.run_id }}"
+        echo "Environment check: PASSED."
